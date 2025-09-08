@@ -1,0 +1,318 @@
+import random
+import pygame
+import sys
+import config
+import math
+
+
+
+
+
+def draw_circle(surface, color, midle_point, radius, width):
+    pygame.draw.circle(surface, color, midle_point, radius, width)
+
+
+def init_game():
+    pygame.init()
+    screen = config.screen
+    pygame.display.set_caption(config.title)
+    return screen
+
+
+def handle_events():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                return False
+
+
+
+
+    return True
+
+
+height = config.SCREEN_HEIGHT
+width = config.SCREEN_WIDTH
+
+
+lol = 1
+
+
+x = 0
+screen = init_game()
+clock = pygame.time.Clock()
+title = config.title
+
+
+rad = 0
+trad = rad
+
+
+red = 0
+green = 0
+blue = 0
+
+
+cradius = 8
+tcradius = cradius
+ccolor = (red, green, blue)
+
+
+fri = 1
+tfri = fri
+
+
+grav = 0
+gravity = 0
+tgravity = gravity
+
+
+die = 50
+tdie = die
+vert = 0
+tvert = vert
+horis = 0
+thoris = horis
+
+
+fall = 5*(30/config.FPS)
+tfall = fall
+
+
+
+
+mode = 1
+fgo = 0
+looping = 0
+loop = False
+run = True
+menu = True
+
+
+while run:
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_0]:
+        rad = trad
+        red = 0
+        green = 0
+        blue = 0
+
+
+        cradius = tcradius
+
+
+        grav = 0
+           
+        fri = tfri
+        gravity = 0
+        die = 0
+           
+        vert = height/2
+        horis = width/2
+
+
+        fall = tfall
+    if keys[pygame.K_1]:
+        mode = 1
+    if keys[pygame.K_2]:
+        mode = 2
+    if keys[pygame.K_3]:
+        mode = 3
+
+
+
+
+    if keys[pygame.K_m]:
+       
+        red = random.randint(0, 255)
+        green = random.randint(0, 255)
+        blue = random.randint(0, 255)
+       
+        rad = random.randint(1, 50)
+        cradius = random.randint(1, 50)
+
+
+
+
+        gravity = random.randint(-100, 100)
+        die = random.randint(-100, 100)
+       
+        vert = random.randint(0, height)
+        horis = random.randint(0, width)
+
+
+        fall = random.randint(0, 20)
+       
+   
+    run = handle_events()
+    clock.tick(config.FPS)
+    screen.fill(config.SKY)
+    pygame.display.set_caption(title)
+    ccolor = (red, green, blue)
+    draw_circle(screen, ccolor, (horis, vert - cradius - rad), cradius + rad, 0)
+    if mode == 1:
+       
+        if keys[pygame.K_BACKSPACE]:
+            rad = trad
+            red = 0
+            green = 0
+            blue = 0
+
+
+            cradius = tcradius
+
+
+            grav = 0
+           
+            fri = tfri
+            gravity = tgravity
+            die = tdie
+           
+            vert = tvert
+            horis = thoris
+
+
+            fall = tfall
+
+
+       
+       
+        if horis > width - cradius - rad:
+            horis = width - cradius - rad
+            if die != 0:
+                die = (-1 * die) + 3
+       
+        if horis < 0 + cradius + rad:
+            horis = 0 + cradius + rad
+            if die != 0:
+                die = (-1 * die) - 3
+
+
+
+
+        if horis < width and horis > 0:
+            horis = horis + (die*(30/config.FPS))
+
+
+
+
+
+
+        if grav >= 3:
+            gravity += fall
+            vert = vert + (gravity*(30/config.FPS))
+        else:
+            grav += 1*(30/config.FPS)
+
+
+
+
+
+
+        if vert > height:
+            vert = height
+            gravity = (-1 * gravity) + 5
+           
+
+
+        if vert >= height - rad - cradius:
+            floop = True
+        else:
+            floop = False
+        if floop == True:
+            if fgo >= 10:
+                if die > -1 and die < 1:
+                    die = 0
+                elif die > 0:
+                    die = die - fri
+                elif die < 0:
+                    die = die + fri
+                fgo = 0
+            else:
+                fgo += 10*(30/config.FPS)
+
+
+        if floop == False:
+            if vert < 0 + 2*(cradius + rad):
+                vert = 0 + 2*(cradius + rad)
+                gravity = gravity * -0.5
+                if die > -1 and die < 1:
+                    die = 0
+                elif die > 0:
+                    die = die - fri
+                elif die < 0:
+                    die = die + fri
+       
+
+
+       
+           
+
+
+
+
+    elif mode == 2:
+        if keys[pygame.K_w]:
+            vert -= 3
+        if keys[pygame.K_s]:
+            vert += 3
+        if keys[pygame.K_d]:
+            horis += 3
+        if keys[pygame.K_a]:
+            horis -= 3
+        if keys[pygame.K_e] and cradius + rad != height/2 and cradius + rad != width/2:
+            rad += 1
+        if keys[pygame.K_q] and cradius + rad > 5:
+            rad -= 1
+        if keys[pygame.K_r]:
+            die += 1
+        if keys[pygame.K_f]:
+            die -= 1
+        if keys[pygame.K_t]:
+            gravity -= 1
+        if keys[pygame.K_g]:
+            gravity += 1
+        if keys[pygame.K_BACKSPACE]:
+            rad = trad
+            red = 0
+            green = 0
+            blue = 0
+
+
+            cradius = tcradius
+
+
+            grav = 0
+           
+            fri = tfri
+            gravity = tgravity
+            die = tdie
+           
+            vert = tvert
+            horis = thoris
+
+
+            fall = tfall
+    elif mode == 3:
+        if looping >= 1/(30/config.FPS):
+            hstart = mouse[0]
+            vstart = mouse[1] + rad + cradius
+            loop = True
+            looping = 0
+
+
+        mouse = pygame.mouse.get_pos()
+        horis = mouse[0]
+        vert = mouse[1] + rad + cradius
+
+
+        if loop == True:
+            gravity = (vert - vstart)/2
+            die = (horis - hstart)/2
+       
+        looping += 1
+   
+    pygame.display.flip()
+
