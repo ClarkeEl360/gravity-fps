@@ -5,7 +5,7 @@ import random
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 660
 title = "This is a screen"
-FPS = 30
+FPS = 60
 
 
 randred = random.randint(0, 255)
