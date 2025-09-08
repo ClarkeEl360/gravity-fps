@@ -4,7 +4,7 @@ import random
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 660
-title = "This is a screen"
+title = "Gravity By Memory"
 FPS = 60
 
 
