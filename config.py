@@ -3,7 +3,7 @@ import sys
 import random
 
 SCREEN_WIDTH = 1280
-SCREEN_HEIGHT = 660
+SCREEN_HEIGHT = 640
 title = "Gravity By Memory"
 FPS = 60
 
