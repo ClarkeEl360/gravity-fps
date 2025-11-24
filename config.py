@@ -5,7 +5,7 @@ import random
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 640
 title = "Gravity By Memory"
-FPS = 60
+FPS = 520
 
 
 randred = random.randint(0, 255)
