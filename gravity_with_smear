@@ -87,11 +87,11 @@ loopvert5 = 0
 loophoris5 = 0
 smear = False
 
-loopcolor1 = (red, green, blue, 42)
-loopcolor2 = (red, green, blue, 84)
+loopcolor1 = (red, green, blue, 210)
+loopcolor2 = (red, green, blue, 166)
 loopcolor3 = (red, green, blue, 126)
-loopcolor4 = (red, green, blue, 166)
-loopcolor5 = (red, green, blue, 210)
+loopcolor4 = (red, green, blue, 84)
+loopcolor5 = (red, green, blue, 42)
 
 mode = 1
 fgo = 0
@@ -154,8 +154,8 @@ while run:
 
 
         fall = random.randint(0, 20)
-       
-   
+
+
     run = handle_events()
     clock.tick(config.FPS)
     screen.fill(config.SKY)
@@ -164,11 +164,11 @@ while run:
     ccolor = (red, green, blue)
     draw_circle(screen, ccolor, (horis, vert - cradius - rad), cradius + rad, 0)
     if smear == True:
-        draw_circle(surface, (red, green, blue, 210), (loophoris1, loopvert1), cradius + rad, 0)
-        draw_circle(surface, (red, green, blue, 168), (loophoris2, loopvert2), cradius + rad, 0)
-        draw_circle(surface, (red, green, blue, 126), (loophoris3, loopvert3), cradius + rad, 0)
-        draw_circle(surface, (red, green, blue, 84), (loophoris4, loopvert4), cradius + rad, 0)
-        draw_circle(surface, (red, green, blue, 42), (loophoris5, loopvert5), cradius + rad, 0)
+        draw_circle(surface, loopcolor1, (loophoris1, loopvert1), cradius + rad, 0)
+        draw_circle(surface, loopcolor2, (loophoris2, loopvert2), cradius + rad, 0)
+        draw_circle(surface, loopcolor3, (loophoris3, loopvert3), cradius + rad, 0)
+        draw_circle(surface, loopcolor4, (loophoris4, loopvert4), cradius + rad, 0)
+        draw_circle(surface, loopcolor5, (loophoris5, loopvert5), cradius + rad, 0)
         loopvert5 = loopvert4
         loophoris5 = loophoris4
         loopvert4 = loopvert3
