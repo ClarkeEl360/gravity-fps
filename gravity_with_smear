@@ -85,6 +85,8 @@ loopvert4 = 0
 loophoris4 = 0
 loopvert5 = 0
 loophoris5 = 0
+loopvert6 = 0
+loophoris6 = 0
 smear = False
 
 loopcolor1 = (red, green, blue, 210)
@@ -92,6 +94,7 @@ loopcolor2 = (red, green, blue, 166)
 loopcolor3 = (red, green, blue, 126)
 loopcolor4 = (red, green, blue, 84)
 loopcolor5 = (red, green, blue, 42)
+loopcolor6 = (red, green, blue, 0)
 
 mode = 1
 fgo = 0
@@ -169,6 +172,7 @@ while run:
         draw_circle(surface, loopcolor3, (loophoris3, loopvert3), cradius + rad, 0)
         draw_circle(surface, loopcolor4, (loophoris4, loopvert4), cradius + rad, 0)
         draw_circle(surface, loopcolor5, (loophoris5, loopvert5), cradius + rad, 0)
+        draw_circle(surface, loopcolor6, (loophoris6, loopvert5), cradius + rad, 0)
         loopvert5 = loopvert4
         loophoris5 = loophoris4
         loopvert4 = loopvert3
@@ -275,6 +279,8 @@ while run:
 
         if smear == False:
             try:
+                loopvert6 = loopvert5
+                loophoris6 = loophoris5
                 loopvert5 = loopvert4
                 loophoris5 = loophoris4
                 loopvert4 = loopvert3
@@ -288,6 +294,8 @@ while run:
                 smear = True
             except:
                 try:
+                    loopvert5 = loopvert4
+                    loophoris5 = loophoris4
                     loopvert4 = loopvert3
                     loophoris4 = loophoris3
                     loopvert3 = loopvert2
@@ -297,7 +305,7 @@ while run:
                     loopvert1 = vert - cradius - rad
                     loophoris1 = horis
                 except:
-                    try:   
+                    try:
                         loopvert4 = loopvert3
                         loophoris4 = loophoris3
                         loopvert3 = loopvert2
@@ -307,7 +315,9 @@ while run:
                         loopvert1 = vert - cradius - rad
                         loophoris1 = horis
                     except:
-                        try:
+                        try:   
+                            loopvert4 = loopvert3
+                            loophoris4 = loophoris3
                             loopvert3 = loopvert2
                             loophoris3 = loophoris2
                             loopvert2 = loopvert1
@@ -316,13 +326,21 @@ while run:
                             loophoris1 = horis
                         except:
                             try:
+                                loopvert3 = loopvert2
+                                loophoris3 = loophoris2
                                 loopvert2 = loopvert1
                                 loophoris2 = loophoris1
                                 loopvert1 = vert - cradius - rad
                                 loophoris1 = horis
                             except:
-                                loopvert1 = vert - cradius - rad
-                                loophoris1 = horis
+                                try:
+                                    loopvert2 = loopvert1
+                                    loophoris2 = loophoris1
+                                    loopvert1 = vert - cradius - rad
+                                    loophoris1 = horis
+                                except:
+                                    loopvert1 = vert - cradius - rad
+                                    loophoris1 = horis
 
 
 
