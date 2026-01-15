@@ -281,6 +281,8 @@ while run:
         if horis == loophoris6 and vert == loopvert6 + cradius + rad:
             die = random.randint(-50, 50)
             gravity = random.randint(-50, 50)
+            vert = random.randint(0, config.SCREEN_HEIGHT)
+            horis = random. randint(0, config.SCREEN_WIDTH)
 
         if smear == False:
             try:
