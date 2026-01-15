@@ -172,7 +172,9 @@ while run:
         draw_circle(surface, loopcolor3, (loophoris3, loopvert3), cradius + rad, 0)
         draw_circle(surface, loopcolor4, (loophoris4, loopvert4), cradius + rad, 0)
         draw_circle(surface, loopcolor5, (loophoris5, loopvert5), cradius + rad, 0)
-        draw_circle(surface, loopcolor6, (loophoris6, loopvert5), cradius + rad, 0)
+        draw_circle(surface, loopcolor6, (loophoris6, loopvert6), cradius + rad, 0)
+        loopvert6 = loopvert5
+        loophoris6 = loophoris5
         loopvert5 = loopvert4
         loophoris5 = loophoris4
         loopvert4 = loopvert3
