@@ -75,6 +75,7 @@ thoris = horis
 fall = 5*(30/config.FPS)
 tfall = fall
 
+looprandom = 0
 loopvert1 = 0
 loophoris1 = 0
 loopvert2 = 0
@@ -281,14 +282,18 @@ while run:
 
 
         if horis == loophoris6 and vert == loopvert6 + cradius + rad:
-            die = random.randint(-190, 100)
-            gravity = random.randint(-100, 100)
-            vert = random.randint(0, config.SCREEN_HEIGHT)
-            horis = random.randint(0, config.SCREEN_WIDTH)
-            red = random.randint(0, 255)
-            green = random.randint(0, 255)
-            blue = random.randint(0, 255)
-            cradius = random.randint(1, 250)
+            looprandom += 1
+            if looprandom == 6:
+                die = random.randint(-190, 100)
+                gravity = random.randint(-100, 100)
+                vert = random.randint(0, config.SCREEN_HEIGHT)
+                horis = random.randint(0, config.SCREEN_WIDTH)
+                red = random.randint(0, 255)
+                green = random.randint(0, 255)
+                blue = random.randint(0, 255)
+                cradius = random.randint(1, 250)
+                looprandom = 0
+            
 
 
 
