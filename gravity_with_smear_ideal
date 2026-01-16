@@ -161,11 +161,11 @@ while run:
     
     draw_circle(screen, ccolor, (horis, vert - cradius - rad), cradius + rad, 0)
     if smear == True:
-        loopcolor1 = (red, green, blue, 210)
-        loopcolor2 = (red, green, blue, 166)
+        loopcolor1 = (red, green, blue, 252)
+        loopcolor2 = (red, green, blue, 189)
         loopcolor3 = (red, green, blue, 126)
-        loopcolor4 = (red, green, blue, 84)
-        loopcolor5 = (red, green, blue, 42)
+        loopcolor4 = (red, green, blue, 63)
+        loopcolor5 = (red, green, blue, 0)
         loopcolor6 = (red, green, blue, 0)
         draw_circle(surface, loopcolor1, (loophoris1, loopvert1), cradius + rad, 0)
         draw_circle(surface, loopcolor2, (loophoris2, loopvert2), cradius + rad, 0)
@@ -281,13 +281,14 @@ while run:
 
 
         if horis == loophoris6 and vert == loopvert6 + cradius + rad:
-            die = random.randint(-50, 50)
-            gravity = random.randint(-50, 50)
+            die = random.randint(-190, 100)
+            gravity = random.randint(-100, 100)
             vert = random.randint(0, config.SCREEN_HEIGHT)
             horis = random.randint(0, config.SCREEN_WIDTH)
             red = random.randint(0, 255)
             green = random.randint(0, 255)
             blue = random.randint(0, 255)
+            cradius = random.randint(1, 250)
 
 
 
